@@ -7,75 +7,95 @@ import javax.persistence.GenerationType;
 
 import javax.validation.constraints.*;
 
-//import java.util.Date;
-
 @Entity
 public class Client{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    @NotEmpty(message = "Le numéro national est obligatoire")
-    @Pattern(message = "Le numéro national doit contenir uniquement 11 chiffres",regexp="\\d{11}")
-    private String nn;
-    @NotEmpty(message = "Le nom est obligatoire")
-    private String name;
-    @NotEmpty(message = "Le prénom est obligatoire")
-    private String firstname;
-    @Email(message = "L'adresse email n'est pas valide")
-    private String mail;
-    private String adress;
-    private String phoneNumber;
-    /*private LocalDate dateLastUpdate = LocalDate.now();
-    private boolean reqUpdate = false;*/
-    /*private boolean c100166;
-    private boolean c100265;
-    private boolean c100364;
-    private boolean c100463;
-    private boolean c101057;
-    private boolean c101849;
-    private boolean c101948;*/
+    @NotNull
+    @NotEmpty(message = "le nom est obligatoire")
+    private String nom;
+    private String nomConjoint;
+    @NotNull
+    @NotEmpty(message = "le prénom est obligatoire")
+    private String prenom;
+    private String prenomConjoint;
+    @NotNull
+    @NotEmpty(message = "le numéro national est obligatoire")
+    private String numeroNational;
+    private String numeroNationalConjoint;
+    private boolean handicap;
+    private boolean handicapConjoint;
+    private String adresse;
+    private String telephone;
+    @Email(message = "l'email n'est pas valide")
+    private String email;
 
-    public int getId(){
-        return id;
+    public String getNom(){
+        return nom;
     }
-    public void setId(int i){
-        this.id = i;
+    public void setNom(String nom){
+        this.nom=nom;
     }
-    public String getNN(){
-        return nn;
+    public String getNomConjoint(){
+        return nomConjoint;
     }
-    public void setNN(String n){
-        this.nn = n;
+    public void setNomConjoint(String nomConjoint){
+        this.nomConjoint=nomConjoint;
     }
-    public String getName(){
-        return this.name;
+    public String getPrenom(){
+        return prenom;
     }
-    public void setName(String n){
-        this.name = n;
+    public void setPrenom(String prenom){
+        this.prenom=prenom;
     }
-    public String getFirstname(){
-        return this.firstname;
+    public String getPrenomConjoint(){
+        return prenomConjoint;
     }
-    public void setFirstname(String n){
-        this.firstname = n;
+    public void setPrenomConjoint(String prenomConjoint){
+        this.prenomConjoint=prenomConjoint;
     }
-    public String getMail(){
-        return mail;
+    public String getNumeroNational(){
+        return numeroNational;
     }
-    public void setMail(String n){
-        this.mail = n;
+    public void setNumeroNational(String numeroNational){
+        this.numeroNational=numeroNational;
     }
-    public String getAdress(){
-        return adress;
+    public String getNumeroNationalConjoint(){
+        return numeroNationalConjoint;
     }
-    public void setAdress(String n){
-        this.adress = n;
+    public void setNumeroNationalConjoint(String numeroNationalConjoint){
+        this.numeroNationalConjoint=numeroNationalConjoint;
     }
-    public String getPhoneNumber(){
-        return this.phoneNumber;
+    public boolean getHandicap(){
+        return handicap;
     }
-    public void setPhoneNumber(String n){
-        this.phoneNumber = n;
+    public void setHandicap(boolean handicap){
+        this.handicap=handicap;
+    }
+    public boolean getHandicapConjoint(){
+        return handicapConjoint;
+    }
+    public void setHandicapConjoint(boolean handicapConjoint){
+        this.handicapConjoint=handicapConjoint;
+    }
+    public String getAdresse(){
+        return adresse;
+    }
+    public void setAdresse(String adresse){
+        this.adresse=adresse;
+    }
+    public String getTelephone(){
+        return telephone;
+    }
+    public void setTelephone(String telephone){
+        this.telephone=telephone;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
     }
 
     

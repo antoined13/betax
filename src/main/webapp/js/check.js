@@ -19,6 +19,16 @@ const ajaxPost = (url,obj,action,callback) => {
     req.setRequestHeader('Content-Type','application/json');
     req.send(JSON.stringify(obj));
 }
+function status(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response)
+    } else {
+        return Promise.reject(new Error(response.statusText))
+    }
+}
+function json(response) {
+    return response.json()
+}
 //CONTRAINTES SUR LES INPUT
 //Fonction qui fait une verif regex sur chaque caractére
 const toRegexChar = (content,regex) => {
