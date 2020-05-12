@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>BeTax - Dashboard</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/2e67705533.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand">
+            <i class="fas fa-balance-scale-right"></i>
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="link1" v-on:click="menuEvent">{{text}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="link2" v-on:click="menuEvent">{{text}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="link3" v-on:click="menuEvent">{{text}}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <table class="table table-striped table-bordered table-hover table-sm">
+        <thead>
+            <tr>
+                <th>Numéro d'ID</th>
+                <th>Nom</th>
+                <th>Dernière mise à jour</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>24155456161</td>
+                <td>Delfosse Antoine</td>
+                <td>13/03/2020</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-success"><i class="far fa-paper-plane"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-user-slash"></i></button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>24155456161</td>
+                <td>Delfosse Antoine</td>
+                <td>13/03/2020</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-success"><i class="far fa-paper-plane"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-user-slash"></i></button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>24155456161</td>
+                <td>Delfosse Antoine</td>
+                <td>13/03/2020</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-success"><i class="far fa-paper-plane"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-user-slash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="popup" id="aj-client">
+        <div class="card border-primary">
+            <div class="card-header bg-primary popup-header">
+                <span class="text-light">Ajouter un client</span>
+                <a v-on:click="close"><i class="fas fa-times text-danger fa-2x"></i></a>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="">Nom*</label>
+                        <input class="form-control" v-model="name" maxlength="100">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Prénom*</label>
+                        <input class="form-control" v-model="firstname" maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>N° de Registre National*</label>
+                    <input class="form-control" v-model="nn" maxlength="11">
+                    <small class="text-muted">Renseigner uniquement les chiffres</small>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Adresse mail</label>
+                        <input type="email" class="form-control" v-model="mail" maxlength="100">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Téléphone</label>
+                        <input class="form-control" v-model="phone_number" type="tel" maxlength="20">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label>Rue</label>
+                        <input class="form-control" v-model="rue" maxlength="100">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>n°</label>
+                        <input class="form-control" v-model="nr" maxlength="10">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Code postal</label>
+                        <input class="form-control" v-model="codepostal" maxlength="5">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Ville</label>
+                        <input class="form-control" v-model="commune" maxlength="50">
+                    </div>
+                </div>
+                <button v-on:click="send">Valider</button>
+                <small class="form-text text-muted">*Champs obligatoires</small>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="aj-decla">
+        <div class="card border-primary">
+            <div class="card-header bg-primary popup-header">
+                <span class="text-light">Ajouter une déclaration</span>
+                <a v-on:click="close"><i class="fas fa-times text-danger fa-2x"></i></a>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Déclarant 1</label>
+                        <select class="form-control">
+                            <option>fseojf</option>
+                            <option>fseojf</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Déclarant 1</label>
+                        <select class="form-control">
+                            <option>fseojf</option>
+                            <option>fseojf</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>IBAN</label>
+                        <input class="form-control">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>BIC</label>
+                        <input class="form-control">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="js/check.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/ajclient.js"></script>
+    <script src="js/ajdecla.js"></script>
+</body>
+</html>

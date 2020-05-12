@@ -1,0 +1,14 @@
+html, body{
+    height:100%;
+}
+body{
+    display: flex;
+}
+.sign-form{
+    max-width: 350px;
+    text-align: center;
+    margin: auto;
+}
+.icon{
+    padding: 20px;
+}

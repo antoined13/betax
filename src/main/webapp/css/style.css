@@ -1,0 +1,23 @@
+body{
+    padding-top:56px;
+}
+a{
+    cursor: pointer;
+}
+.popup{
+    visibility: hidden;
+    position: absolute;
+    margin: auto;
+    min-width: 600px;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 2;
+}
+.popup .card{
+    box-shadow: 1px 1px 12px #aaa;
+}
+.popup-header{
+    display: flex;
+    justify-content: space-between;
+}
