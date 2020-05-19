@@ -6,10 +6,7 @@ let ajClient = new Vue({
         prenom:"",
         numeroNational:"",
         handicap:"",
-        rue:"",
-        numero:"",
-        codePostal:"",
-        commune:"",
+        adresse:"",
         telephone:"",
         email:""
     },
@@ -22,24 +19,17 @@ let ajClient = new Vue({
             this.prenom="";
             this.numeroNational="";
             this.handicap="";
-            this.rue="";
-            this.numero="";
-            this.codePostal="";
-            this.commune="";
+            this.adresse="";
             this.telephone="";
             this.email="";
         },
         send: function(){
-            const adress = "";
-            if(!(this.rue+this.numero+this.codePostal+this.commune).length===0){
-                adress = `${this.rue}, ${this.numero} ${this.codePostal} ${this.commune}`;
-            }
             const client = {
                 nom:this.nom,
                 prenom:this.prenom,
                 numeroNational:this.numeroNational,
                 handicap:this.handicap,
-                adresse: adress,
+                adresse: this.adresse,
                 telephone: this.telephone,
                 email: this.email
             }
@@ -64,12 +54,6 @@ let ajClient = new Vue({
         },
         numeroNationalConjoint: function (val) {
             this.numeroNational=toRegexChar(val,RegExp('\\d'));
-        },
-        numero: function (val) {
-            this.numero=toRegexChar(val,RegExp('[\\w-]'));
-        },
-        codepostal: function (val) {
-            this.codePostal=toRegexChar(val,RegExp('\\d'));
         }
 
     }
